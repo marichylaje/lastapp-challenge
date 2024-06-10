@@ -11,9 +11,11 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
     "primereact": "^10.6.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.11",
     "typescript": "^4.9.5",
@@ -23,7 +25,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
+    "isready": "npm run format && npm run lint && npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -31,6 +37,11 @@
       "react-app/jest"
     ]
   },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/",
+    "build/"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -42,5 +53,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^15.4.0",
+    "typescript-eslint": "^7.12.0"
   }
 }

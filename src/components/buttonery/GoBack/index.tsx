@@ -1,11 +1,22 @@
-import React from 'react';
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import StyledFloatingButton from "../styles"
 
 const GoBack = () => {
-    return (
-        <div>
-            <h1>Product</h1>
-        </div>
-    )
+  const navigate = useNavigate()
+
+  const handleGoBack = () => {
+    navigate("/")
+  }
+
+  return (
+    <StyledFloatingButton
+      icon="pi pi-chevron-left"
+      rounded
+      aria-label="GoBack"
+      onClick={handleGoBack}
+    />
+  )
 }
 
-export default GoBack;
+export default GoBack

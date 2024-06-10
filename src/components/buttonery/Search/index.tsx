@@ -1,11 +1,19 @@
-import React from 'react';
+import React from "react"
+import StyledFloatingButton from "../styles"
 
-const Search = () => {
-    return (
-        <div>
-            <h1>Product</h1>
-        </div>
-    )
+interface SearchProps {
+  onClick: () => void
 }
 
-export default Search;
+const Search: React.FC<SearchProps> = ({ onClick }) => {
+  return (
+    <StyledFloatingButton
+      icon="pi pi-search"
+      rounded
+      aria-label="GoBack"
+      onClick={onClick}
+    />
+  )
+}
+
+export default Search

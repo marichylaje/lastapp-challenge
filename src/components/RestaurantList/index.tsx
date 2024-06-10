@@ -1,21 +1,42 @@
-import { useDataRestaurantsContext } from 'hooks/useDataRestaurantsContext';
-import React from 'react';
-import RestaurantCard from './RestaurantCard';
+import React from "react"
+import { useDataRestaurantsContext } from "hooks/useDataRestaurantsContext"
+import RestaurantCard from "./RestaurantCard"
+import RestaurantCardSkeleton from "./RestaurantCard/RestaurantCardSkeleton"
+import { useGeoLocationContext } from "hooks/useGeoLocationContext"
+import { useRestaurantsWithDistance } from "hooks/useRestaurantsWithDistance"
+import type { RestaurantWithDistanceType } from "types"
 
+//TODO: SOLVE CONSOLE LOG ONCLICK
+//TODO: SHOW RESTAURANTS BY PROXIMITY
 const RestaurantList = () => {
-    const { restaurants } = useDataRestaurantsContext();
+  const { location } = useGeoLocationContext()
+  const { restaurants } = useDataRestaurantsContext()
+  const sortedRestaurants = useRestaurantsWithDistance({
+    restaurants,
+    origin: location,
+  })
 
-    console.log({ restaurants })
-
-    if (!restaurants) {
-        return <div>Loading...</div>
-    }
-
+  if (!restaurants || !sortedRestaurants) {
     return (
-        <div>
-            <RestaurantCard {...restaurants[0]} />
-        </div>
+      <div>
+        <RestaurantCardSkeleton />
+      </div>
     )
+  }
+
+  return (
+    <div>
+      {sortedRestaurants.map((restaurant: RestaurantWithDistanceType) => (
+        <RestaurantCard
+          onClick={() => {
+            console.log(restaurant)
+          }}
+          key={restaurant.id}
+          {...restaurant}
+        />
+      ))}
+    </div>
+  )
 }
 
-export default RestaurantList;
+export default RestaurantList
