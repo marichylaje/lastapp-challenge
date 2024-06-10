@@ -1,5 +1,5 @@
 import React from "react"
-import StyledFloatingButton from "../styles"
+import { StyledFloatingButton } from "../styles"
 
 interface SearchProps {
   onClick: () => void

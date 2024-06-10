@@ -15,9 +15,11 @@ export const StyledChip = styled(Chip)<ChipProps>`
 `
 
 export const StyledTabMenu = styled(PrimereactTabMenu)`
-  margin-left: 1rem;
+  padding-left: 1rem;
   position: relative;
   z-index: 5;
+  max-width: var(--max-width); 
+  margin: 0 auto;
 
   & > ul,
   .p-menuitem-link,

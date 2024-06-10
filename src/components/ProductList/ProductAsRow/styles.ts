@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { Button } from "primereact/button"
 
-export const ButtonContainer = styled.div`
+export const RightSideContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

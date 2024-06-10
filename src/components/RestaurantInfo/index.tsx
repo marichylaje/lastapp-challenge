@@ -8,6 +8,7 @@ import {
   Info,
   InfoText,
   ImageWrapper,
+  RestaurantInfoContainer,
 } from "./styles"
 import type { RestaurantWithDistanceType } from "types"
 
@@ -32,12 +33,12 @@ const RestaurantInfo: React.FC<RestaurantCardProps> = ({
   iscard = true,
 }) => {
   return (
-    <>
+    <RestaurantInfoContainer>
       <ImageWrapper>
-        <StyledImage src={image} alt={name} iscard={iscard} />
-        <StyledLogo src={logo} alt={`${name}-logo`} iscard={iscard} />
+        <StyledImage src={image} alt={name} iscard={iscard.toString()} />
+        <StyledLogo src={logo} alt={`${name}-logo`} iscard={iscard.toString()} />
       </ImageWrapper>
-      <Content iscard={iscard}>
+      <Content iscard={iscard.toString()}>
         <Title>{name.toUpperCase()}</Title>
         <Category>{category}</Category>
         <Info>
@@ -52,14 +53,14 @@ const RestaurantInfo: React.FC<RestaurantCardProps> = ({
             width="12"
             height="12"
             fill="#6E6E6E"
-            style={{ marginLeft: "10px" }}
+            className="ml-3"
           >
             <use href="#location-icon" />
           </svg>
           <InfoText>{distance} km</InfoText>
         </Info>
       </Content>
-    </>
+    </RestaurantInfoContainer>
   )
 }
 

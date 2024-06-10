@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 export const ProductContainer = styled.div`
   flex: 1 1;
-  width: 180px;
-  max-width: 180px;
+  width: 160px;
+  max-width: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,9 @@ export const ProductName = styled.h2`
   font-weight: 400;
   color: var(--primary-color);
   align-self: flex-start;
+  margin: 0;
   margin-left: 0.5rem;
+  padding: 0;
 `
 
 export const PriceContainer = styled.div`
@@ -60,6 +62,7 @@ export const StyledButton = styled(Button)<StyledButtonProps>`
       ? "var(--white-color)"
       : "var(--primary-color)"};
   border-radius: 50%;
+  border: solid 1px var(--primary-color);
   width: 1.5rem;
   height: 1.5rem;
   flex-shrink: 0;

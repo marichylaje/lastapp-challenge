@@ -7,10 +7,10 @@ import { useRestaurantsWithDistance } from "hooks/useRestaurantsWithDistance"
 import type { RestaurantWithDistanceType } from "types"
 
 //TODO: SOLVE CONSOLE LOG ONCLICK
-//TODO: SHOW RESTAURANTS BY PROXIMITY
 const RestaurantList = () => {
   const { location } = useGeoLocationContext()
   const { restaurants } = useDataRestaurantsContext()
+  
   const sortedRestaurants = useRestaurantsWithDistance({
     restaurants,
     origin: location,

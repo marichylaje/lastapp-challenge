@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
 export const ProductListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; /* Alinea los items al inicio de la fila */
+  justify-content: flex-start; 
   gap: 16px;
-  max-width: 1200px; /* Define un ancho máximo para el contenedor de productos */
+  max-width: var(--max-width); 
 `

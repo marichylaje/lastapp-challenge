@@ -1,10 +1,11 @@
 import React from "react"
-import Product from "./Product"
+import ProductAsCard from "./ProductAsCard"
 import { PageContainer, ProductListContainer } from "./styles"
-import type { ProductType } from "types"
+import type { ProductType, SelectionType } from "types"
+import ProductAsRow from "./ProductAsRow";
 
 interface ProductListProps {
-  products: ProductType[]
+  products: ProductType[] | SelectionType[];
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
@@ -12,7 +13,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
     <PageContainer>
       <ProductListContainer>
         {products.map((product: ProductType) => (
-          <Product product={product} key={product.name} />
+          <ProductAsCard key={product.name} product={product} />
         ))}
       </ProductListContainer>
     </PageContainer>

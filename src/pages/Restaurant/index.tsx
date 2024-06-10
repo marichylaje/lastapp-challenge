@@ -1,31 +1,30 @@
 import React, { useState } from "react"
-import Header from "components/Header"
 import RestaurantInfo from "components/RestaurantInfo"
 import GoBack from "components/buttonery/GoBack"
 import { useDataRestaurantsContext } from "hooks/useDataRestaurantsContext"
 import Search from "components/buttonery/Search"
-import { FloatingButtonContainer, TotalButton } from "./styles"
+import { FloatingButtonContainer } from "./styles"
 import TabMenu from "components/TabMenu"
 import { useRestaurantCatalogContext } from "hooks/useRestaurantCatalogContext"
 import ProductList from "components/ProductList"
 import SearchPanel from "components/SearchPanel"
+import TotalToPay from "components/buttonery/TotalToPay"
 
-//TODO: move everything into a smart component, and this one as dumb one?
 const Restaurant = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(0)
-  const [isSearchActive, setisSearchActive] = useState<boolean>(false)
-  const { selectedRestaurant } = useDataRestaurantsContext()
-  const { catalog, totalToPay } = useRestaurantCatalogContext()
+  const [ activeIndex, setActiveIndex ] = useState<number>(0);
+  const [ isSearchActive, setisSearchActive ] = useState<boolean>(false);
+  const { selectedRestaurant } = useDataRestaurantsContext();
+  const { catalog, totalToPay } = useRestaurantCatalogContext();
 
-  //TODO: handle error
-  if (!selectedRestaurant) return null
-  if (!catalog) return null
+  //TODO: handle error with toast
+  if (!selectedRestaurant) return null;
+  if (!catalog) return null;
 
-  const tabOptions = catalog.map((option) => option.name)
-  const products = catalog[activeIndex]?.products
+  const tabOptions = catalog.map((option) => option.name);
+  const products = catalog[activeIndex]?.products;
+
   return (
     <div>
-      <Header />
       <RestaurantInfo {...selectedRestaurant} iscard={false} />
       <FloatingButtonContainer>
         <GoBack />
@@ -38,7 +37,7 @@ const Restaurant = () => {
       />
       <ProductList products={products} />
       {totalToPay > 0 && (
-        <TotalButton aria-label="total to pay" label={`Total: (${totalToPay.toFixed(2)} €)`} />
+        <TotalToPay total={totalToPay.toFixed(2)} />
       )}
       {isSearchActive && (
         <SearchPanel

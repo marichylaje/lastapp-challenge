@@ -9,6 +9,7 @@
   --text-color-secondary: #a8a8c8;
   --white-color: #ffffff;
   --shadow-color: #f9f9fb;
+  --max-width: 450px;
 }
 
 body {

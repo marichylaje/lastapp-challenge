@@ -12,19 +12,3 @@ export const FloatingButtonContainer = styled.div`
   left: 50%;
   z-index: 3;
 `
-
-export const TotalButton = styled(Button)`
-  width: 90%;
-  height: 4rem;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-  border-radius: 0.75rem;
-  z-index: 10;
-
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-`

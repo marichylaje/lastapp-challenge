@@ -4,7 +4,7 @@ import { ReactComponent as LocationIcon } from "assets/icons/Location.svg"
 
 const Icons: React.FC = () => {
   return (
-    <svg width="0" height="0" style={{ display: "none" }}>
+    <svg width="0" height="0" className="hidden">
       <symbol id="star-icon" viewBox="0 0 12 12">
         <StarIcon />
       </symbol>

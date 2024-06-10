@@ -1,19 +1,16 @@
 import React from "react"
 import Header from "components/Header"
 import RestaurantList from "components/RestaurantList"
+import { Container, InnerContainer } from "./styles"
 
 const Home = () => {
   return (
-    <div className="flex flex-column" style={{ placeItems: "center" }}>
-      <Header />
-      <div
-        className="p-3 pl-5 pr-5"
-        style={{ maxWidth: "400px", alignContent: "center" }}
-      >
+    <Container className="flex flex-column" >
+      <InnerContainer className="p-3 pl-5 pr-5" >
         <h1>Restaurantes</h1>
         <RestaurantList />
-      </div>
-    </div>
+      </InnerContainer>
+    </Container>
   )
 }
 

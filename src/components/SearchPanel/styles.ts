@@ -7,7 +7,7 @@ export const SearchContainer = styled.div`
   align-items: center;
   border-radius: 1rem;
   padding: 0.5rem;
-  max-width: 400px;
+  max-width: var(--max-width); 
   background-color: var(--shadow-color);
   margin-top: 2rem;
 `
@@ -46,9 +46,10 @@ export const SearchInput = styled(InputText)`
 `
 
 export const StyledSidebar = styled(Sidebar)`
-  max-width: 400px;
+  max-width: var(--max-width); 
   max-height: 80%;
   margin: auto;
+  border-bottom: 1rem solid var(--white-color);
 `
 
 export const sidebarPt = { header: { style: { display: "none" } } }

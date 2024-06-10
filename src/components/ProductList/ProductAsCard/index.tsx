@@ -17,7 +17,7 @@ interface ProductProps {
   product: ProductType
 }
 
-const Product: React.FC<ProductProps> = ({ product }) => {
+const ProductAsCard: React.FC<ProductProps> = ({ product }) => {
   const { setSelection } = useRestaurantCatalogContext()
   const [ quantity, setQuantity ] = useState<number>(0)
   const { selection } = useRestaurantCatalogContext()
@@ -89,4 +89,4 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   )
 }
 
-export default Product
+export default ProductAsCard

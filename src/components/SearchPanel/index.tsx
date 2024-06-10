@@ -9,15 +9,14 @@ import {
   SidebarListItem,
 } from "./styles"
 import { useRestaurantCatalogContext } from "hooks/useRestaurantCatalogContext"
+import ProductAsRow from "../ProductList/ProductAsRow"
 import type { ProductType, SelectionType } from "types"
-import SearchProduct from "./SearchProduct"
 
 interface SearchPanelProps {
   isVisible: boolean
   setIsVisible: (isVisible: boolean) => void
 }
 
-//TODO: image error handler as common component 
 const SearchPanel: React.FC<SearchPanelProps> = ({
   isVisible,
   setIsVisible,
@@ -87,7 +86,7 @@ const SearchPanel: React.FC<SearchPanelProps> = ({
       {matches.length > 0 && (
         <SidebarListItem>
           {matches.map((match) => (
-              <SearchProduct match={match} handleSelectProduct={handleSelectProduct} />
+              <ProductAsRow product={match} handleSelectProduct={handleSelectProduct} />
           ))}
         </SidebarListItem>
       )}
