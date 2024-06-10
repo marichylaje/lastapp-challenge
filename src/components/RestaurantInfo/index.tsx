@@ -1,7 +1,7 @@
 import React from "react"
 import {
-  Image,
-  Logo,
+  StyledImage,
+  StyledLogo,
   Content,
   Title,
   Category,
@@ -34,8 +34,8 @@ const RestaurantInfo: React.FC<RestaurantCardProps> = ({
   return (
     <>
       <ImageWrapper>
-        <Image src={image} alt={name} iscard={iscard} />
-        <Logo src={logo} alt={`${name}-logo`} iscard={iscard} />
+        <StyledImage src={image} alt={name} iscard={iscard} />
+        <StyledLogo src={logo} alt={`${name}-logo`} iscard={iscard} />
       </ImageWrapper>
       <Content iscard={iscard}>
         <Title>{name.toUpperCase()}</Title>

@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from "react"
-import { Sidebar } from "primereact/sidebar"
 import {
   ClearIcon,
   SearchIcon,
   SearchInput,
   SearchContainer,
-  SelectButton,
-  ButtonContainer,
+  StyledSidebar,
+  sidebarPt,
+  SidebarListItem,
 } from "./styles"
 import { useRestaurantCatalogContext } from "hooks/useRestaurantCatalogContext"
 import type { ProductType, SelectionType } from "types"
+import SearchProduct from "./SearchProduct"
 
 interface SearchPanelProps {
   isVisible: boolean
   setIsVisible: (isVisible: boolean) => void
 }
 
+//TODO: image error handler as common component 
 const SearchPanel: React.FC<SearchPanelProps> = ({
   isVisible,
   setIsVisible,
 }) => {
-  const [search, setSearch] = useState<string>("")
-  const [matches, setMatches] = useState<ProductType[]>([])
+  const [ search, setSearch ] = useState<string>("")
+  const [ matches, setMatches ] = useState<ProductType[]>([])
   const { catalog, setSelection } = useRestaurantCatalogContext()
 
   const clearSearch = () => {
@@ -30,7 +32,7 @@ const SearchPanel: React.FC<SearchPanelProps> = ({
   }
 
   useEffect(() => {
-    if (!catalog) return
+    if (!catalog) return;
 
     const innerMatches: ProductType[] = catalog.reduce(
       (acc: ProductType[], category) => {
@@ -71,7 +73,7 @@ const SearchPanel: React.FC<SearchPanelProps> = ({
   }
 
   return (
-    <Sidebar visible={isVisible} onHide={() => setIsVisible(false)} fullScreen>
+    <StyledSidebar pt={sidebarPt} visible={isVisible} onHide={() => setIsVisible(false)} fullScreen >
       <SearchContainer>
         <SearchIcon className="pi pi-search" />
         <SearchInput
@@ -83,48 +85,13 @@ const SearchPanel: React.FC<SearchPanelProps> = ({
       </SearchContainer>
 
       {matches.length > 0 && (
-        <ul style={{ listStyleType: "none", margin: "10px 0", padding: 0 }}>
-          {matches.map((match, index) => (
-            <li
-              key={index}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginBottom: "2rem",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img
-                  src={match.image}
-                  alt={match.name}
-                  style={{ width: "60px", height: "47px", marginRight: "10px" }}
-                />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                  }}
-                >
-                  <h3 style={{ margin: 0 }}>{match.name}</h3>
-                  <p style={{ margin: 0 }}>{match.price}€</p>
-                </div>
-              </div>
-              <ButtonContainer>
-                <SelectButton
-                  icon="pi pi-chevron-right"
-                  rounded
-                  aria-label="select product"
-                  className="p-button-text p-button-rounded"
-                  onClick={() => handleSelectProduct(match)}
-                />
-              </ButtonContainer>
-            </li>
+        <SidebarListItem>
+          {matches.map((match) => (
+              <SearchProduct match={match} handleSelectProduct={handleSelectProduct} />
           ))}
-        </ul>
+        </SidebarListItem>
       )}
-    </Sidebar>
+    </StyledSidebar>
   )
 }
 

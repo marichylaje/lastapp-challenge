@@ -17,7 +17,7 @@ export const ImageWrapper = styled.div`
   position: relative;
 `
 
-export const Image = styled.img<ImageProps>`
+export const StyledImage = styled.img<ImageProps>`
   width: 100%;
   height: 150px;
   ${({ iscard }) =>
@@ -28,7 +28,7 @@ export const Image = styled.img<ImageProps>`
     `}
 `
 
-export const Logo = styled.img<ImageProps>`
+export const StyledLogo = styled.img<ImageProps>`
   width: ${({ iscard }) => (iscard ? "50px" : "75px")};
   height: ${({ iscard }) => (iscard ? "50px" : "75px")};
   border-radius: ${({ iscard }) => (iscard ? "30%" : "20%")};

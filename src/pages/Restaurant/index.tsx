@@ -38,7 +38,7 @@ const Restaurant = () => {
       />
       <ProductList products={products} />
       {totalToPay > 0 && (
-        <TotalButton label={`Total: (${totalToPay.toFixed(2)} €)`} />
+        <TotalButton aria-label="total to pay" label={`Total: (${totalToPay.toFixed(2)} €)`} />
       )}
       {isSearchActive && (
         <SearchPanel

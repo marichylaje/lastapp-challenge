@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { InputText } from "primereact/inputtext"
-import { Button } from "primereact/button"
+import { Sidebar } from 'primereact/sidebar';
 
 export const SearchContainer = styled.div`
   display: flex;
@@ -9,6 +9,7 @@ export const SearchContainer = styled.div`
   padding: 0.5rem;
   max-width: 400px;
   background-color: var(--shadow-color);
+  margin-top: 2rem;
 `
 
 export const SearchIcon = styled.i`
@@ -44,13 +45,16 @@ export const SearchInput = styled(InputText)`
   }
 `
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+export const StyledSidebar = styled(Sidebar)`
+  max-width: 400px;
+  max-height: 80%;
+  margin: auto;
 `
 
-export const SelectButton = styled(Button)`
-  background-color: var(--primary-color);
-  color: var(--white-color);
+export const sidebarPt = { header: { style: { display: "none" } } }
+
+export const SidebarListItem = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
 `

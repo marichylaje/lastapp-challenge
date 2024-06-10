@@ -11,18 +11,11 @@ export const ProductContainer = styled.div`
   background: #fff;
 `
 
-export const ProductImageWrapper = styled.div`
+export const ProductImageContainer = styled.div`
   width: 150px;
   height: 120px;
   overflow: hidden;
   position: relative;
-`
-
-export const ProductImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
 `
 
 export const ProductPrice = styled.p`
@@ -37,7 +30,7 @@ export const ProductPrice = styled.p`
   padding-top: 4px;
 `
 
-export const ProductName = styled.h3`
+export const ProductName = styled.h2`
   font-size: 14px;
   line-height: 18px;
   font-weight: 400;

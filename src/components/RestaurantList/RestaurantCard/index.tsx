@@ -24,7 +24,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
   }
 
   return (
-    <Card className="border-round-2xl mb-5" pt={ptCard} onClick={handleClick}>
+    <Card className="border-round-2xl mb-5 cursor-pointer" pt={ptCard} onClick={handleClick}>
       <RestaurantInfo {...props} />
     </Card>
   )

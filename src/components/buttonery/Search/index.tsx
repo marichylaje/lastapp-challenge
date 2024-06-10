@@ -10,7 +10,7 @@ const Search: React.FC<SearchProps> = ({ onClick }) => {
     <StyledFloatingButton
       icon="pi pi-search"
       rounded
-      aria-label="GoBack"
+      aria-label="search"
       onClick={onClick}
     />
   )

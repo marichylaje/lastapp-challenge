@@ -13,7 +13,7 @@ const GoBack = () => {
     <StyledFloatingButton
       icon="pi pi-chevron-left"
       rounded
-      aria-label="GoBack"
+      aria-label="go back"
       onClick={handleGoBack}
     />
   )

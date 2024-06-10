@@ -3,15 +3,14 @@ import {
   ButtoneryContainer,
   StyledButton,
   ProductContainer,
-  ProductImage,
-  ProductImageWrapper,
+  ProductImageContainer,
   ProductName,
   ProductPrice,
   PriceContainer,
   Quantity,
 } from "./styles"
-import cannotLoad from "assets/images/cannot-load.png"
 import { useRestaurantCatalogContext } from "hooks/useRestaurantCatalogContext"
+import ProductImage from "components/ProductImage"
 import type { ProductType } from "types"
 
 interface ProductProps {
@@ -19,20 +18,9 @@ interface ProductProps {
 }
 
 const Product: React.FC<ProductProps> = ({ product }) => {
-  const [imageSrc, setImageSrc] = useState<string>(product.image)
-  const { selection, setSelection } = useRestaurantCatalogContext()
-  const [quantity, setQuantity] = useState<number>(0)
-
-  const handleImageError = () => {
-    setImageSrc(cannotLoad)
-  }
-
-  useEffect(() => {
-    imageSrc !== product.image && setImageSrc(product.image)
-    const selectedMatch = selection?.find((item) => item.name === product.name)
-
-    if (selectedMatch) setQuantity(selectedMatch.quantity)
-  }, [product, selection])
+  const { setSelection } = useRestaurantCatalogContext()
+  const [ quantity, setQuantity ] = useState<number>(0)
+  const { selection } = useRestaurantCatalogContext()
 
   const handleQuantityChange = (byNumber: number) => {
     const newQuantity = quantity + byNumber
@@ -61,15 +49,19 @@ const Product: React.FC<ProductProps> = ({ product }) => {
     })
   }
 
+  useEffect(() => {
+    const selectedMatch = selection?.find((item) => item.name === product.name)
+    if (selectedMatch) setQuantity(selectedMatch.quantity)
+}, [selection])
+
   return (
     <ProductContainer>
-      <ProductImageWrapper>
+      <ProductImageContainer>
         <ProductImage
-          src={imageSrc}
-          alt={product.name}
-          onError={handleImageError}
+          src={product.image}
+          name={product.name}
         />
-      </ProductImageWrapper>
+      </ProductImageContainer>
       <ProductName>{product.name}</ProductName>
       <PriceContainer>
         <ProductPrice>{product.price.toFixed(2)} €</ProductPrice>
@@ -79,6 +71,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
               <StyledButton
                 responsability="minus"
                 icon="pi pi-minus"
+                aria-label="decrease quantity"
                 onClick={() => handleQuantityChange(-1)}
               />
               <Quantity>{quantity}</Quantity>
@@ -87,6 +80,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
           <StyledButton
             responsability="add"
             icon="pi pi-plus"
+            aria-label="increase quantity"
             onClick={() => handleQuantityChange(+1)}
           />
         </ButtoneryContainer>
