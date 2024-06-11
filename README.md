@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# LastApp: Web Application 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+LastApp is a web application designed primarily for mobile users, enabling them to place orders from a variety of restaurants organized by proximity. Users can select a restaurant from a list of associated eateries, view the available products, choose their desired items, and complete their purchase seamlessly. This mobile-first application ensures a smooth and user-friendly experience, making it easy for users to enjoy their favorite meals from nearby restaurants.
+
+### Application Structure
+The application is structured using a page-based approach facilitated by react-router-dom, which helps maintain the user's restaurant selection even after a page reload.
+
+### Component and Styling
+LastApp utilizes pre-designed components provided by PrimeReact, which are then styled using Styled Components and TailwindCSS. This combination allows for a flexible and aesthetically pleasing design, ensuring a consistent look and feel throughout the application.
+
+### State Management
+Given the small size of the application, state management is efficiently handled using ContextAPI. Each store/context is tailored to specific parts of the application, providing a modular and organized approach to state management. This ensures that each section of the app has access to the relevant state data it requires, promoting maintainability and scalability.
+
 
 ## Architecture Baseline
 
@@ -117,8 +128,11 @@ TODO: Ensure that this script is set to run automatically on push events.
 - Add more context stores, to be able to obtain "total" and other data
 - Save on cache images
 - Test contextAPI properly
+- Generate Toaster to handle errors as global component
 - Work on manifest
 - Add Dependency section on Readme
+- Move from ContextAPI to Effector to improve Performance
+- Move from CRA to Next.js to improve FCP 
 
 ## Learn More
 
