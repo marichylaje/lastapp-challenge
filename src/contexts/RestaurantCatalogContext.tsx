@@ -44,7 +44,6 @@ export const RestaurantCatalogProvider: React.FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     if (!selection) return
-    console.log({ selection })
     const total = selection.reduce(
       (sum, product) => sum + product.price * product.quantity,
       0

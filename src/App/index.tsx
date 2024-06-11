@@ -9,7 +9,6 @@ import Icons from "components/Icons"
 import { DataRestaurantsProvider } from "contexts/DataRestaurantsContext"
 
 const App: React.FC = () => {
-  console.log("RUNG")
   return (
     <>
       <PrimeReactProvider>

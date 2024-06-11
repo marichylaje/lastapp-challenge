@@ -17,7 +17,6 @@ const Restaurant = () => {
   const { selectedRestaurant } = useDataRestaurantsContext()
   const { catalog, totalToPay } = useRestaurantCatalogContext()
 
-  //TODO: handle error with toast
   if (!selectedRestaurant) return null
   if (!catalog) return null
 
