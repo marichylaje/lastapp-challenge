@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   SelectButton,
   RightSideContainer,
@@ -6,22 +6,28 @@ import {
   ItemTextContainer,
   SidebarItem,
   ImageContainer,
-} from "./styles";
-import type { ProductType, SelectionType } from "types";
-import ProductImage from "components/ProductImage";
+} from "./styles"
+import type { ProductType, SelectionType } from "types"
+import ProductImage from "components/ProductImage"
 
 interface SearchPanelProps {
-  product: ProductType | SelectionType;
-  handleSelectProduct?: (product: ProductType) => void;
-  isSUmmary?: boolean;
+  product: ProductType | SelectionType
+  handleSelectProduct?: (product: ProductType) => void
+  isSUmmary?: boolean
 }
 
-const isSelectionType = (product: ProductType | SelectionType): product is SelectionType => {
-  return (product as SelectionType).quantity !== undefined;
-};
+const isSelectionType = (
+  product: ProductType | SelectionType
+): product is SelectionType => {
+  return (product as SelectionType).quantity !== undefined
+}
 
-const ProductAsRow: React.FC<SearchPanelProps> = ({ product, handleSelectProduct, isSUmmary = false }) => {
-  const { name, image, price } = product;
+const ProductAsRow: React.FC<SearchPanelProps> = ({
+  product,
+  handleSelectProduct,
+  isSUmmary = false,
+}) => {
+  const { name, image, price } = product
   return (
     <SidebarItem key={name}>
       <ItemDataContainer>
@@ -51,7 +57,7 @@ const ProductAsRow: React.FC<SearchPanelProps> = ({ product, handleSelectProduct
         )}
       </RightSideContainer>
     </SidebarItem>
-  );
-};
+  )
+}
 
-export default ProductAsRow;
+export default ProductAsRow

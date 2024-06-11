@@ -1,7 +1,8 @@
 import React from "react"
-import { ReactComponent as StarIcon } from "assets/icons/Star.svg"
-import { ReactComponent as LocationIcon } from "assets/icons/Location.svg"
+import { ReactComponent as StarIcon } from "../../assets/icons/Star.svg"
+import { ReactComponent as LocationIcon } from "../../assets/icons/Location.svg"
 
+// load only once every icon to improve performance
 const Icons: React.FC = () => {
   return (
     <svg width="0" height="0" className="hidden">

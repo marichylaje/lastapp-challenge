@@ -1,11 +1,11 @@
-import { Toast } from "primereact/toast";
-import styled from "styled-components";
+import { Toast } from "primereact/toast"
+import styled from "styled-components"
 
 export const toastPt = {
   root: {
-    style: { left: '50%', transform: 'translateX(-50%)' },
-  }
-};
+    style: { left: "50%", transform: "translateX(-50%)" },
+  },
+}
 
 export const StyledToast = styled(Toast)`
   .p-confirm-dialog-accept {
@@ -17,4 +17,4 @@ export const StyledToast = styled(Toast)`
     color: var(--primary-color);
     background-color: var(--white-color);
   }
-`;
+`

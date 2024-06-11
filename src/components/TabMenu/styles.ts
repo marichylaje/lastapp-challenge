@@ -3,14 +3,14 @@ import { TabMenu as PrimereactTabMenu } from "primereact/tabmenu"
 import styled from "styled-components"
 
 interface ChipProps {
-  isSelected: boolean
+  isselected: boolean
 }
 
 export const StyledChip = styled(Chip)<ChipProps>`
-  background-color: ${({ isSelected }) =>
-    isSelected ? "var(--primary-color)" : "transparent"};
-  color: ${({ isSelected }) =>
-    !isSelected ? "var(--primary-color)" : "var(--white-color)"};
+  background-color: ${({ isselected }) =>
+    isselected ? "var(--primary-color)" : "transparent"};
+  color: ${({ isselected }) =>
+    !isselected ? "var(--primary-color)" : "var(--white-color)"};
   border-radius: 2rem;
 `
 
@@ -18,7 +18,7 @@ export const StyledTabMenu = styled(PrimereactTabMenu)`
   padding-left: 1rem;
   position: relative;
   z-index: 5;
-  max-width: var(--max-width); 
+  max-width: var(--max-width);
   margin: 0 auto;
 
   & > ul,

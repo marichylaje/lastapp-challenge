@@ -14,7 +14,7 @@ const TabMenu: React.FC<TabMenuProps> = ({
 }) => {
   const itemRenderer = (option: string, itemIndex: number) => ({
     icon: () => (
-      <StyledChip label={option} isSelected={activeIndex === itemIndex} />
+      <StyledChip label={option} isselected={activeIndex === itemIndex} />
     ),
     command: () => setActiveIndex(itemIndex),
   })

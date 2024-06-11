@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import { InputText } from "primereact/inputtext"
-import { Sidebar } from 'primereact/sidebar';
+import { Sidebar } from "primereact/sidebar"
 
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   border-radius: 1rem;
   padding: 0.5rem;
-  max-width: var(--max-width); 
+  max-width: var(--max-width);
   background-color: var(--shadow-color);
   margin-top: 2rem;
 `
@@ -46,7 +46,7 @@ export const SearchInput = styled(InputText)`
 `
 
 export const StyledSidebar = styled(Sidebar)`
-  max-width: var(--max-width); 
+  max-width: var(--max-width);
   max-height: 80%;
   margin: auto;
   border-bottom: 1rem solid var(--white-color);

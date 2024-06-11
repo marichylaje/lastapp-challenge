@@ -19,8 +19,9 @@ interface ProductProps {
 
 const ProductAsCard: React.FC<ProductProps> = ({ product }) => {
   const { setSelection } = useRestaurantCatalogContext()
-  const [ quantity, setQuantity ] = useState<number>(0)
+  const [quantity, setQuantity] = useState<number>(0)
   const { selection } = useRestaurantCatalogContext()
+  const { name, price, image } = product
 
   const handleQuantityChange = (byNumber: number) => {
     const newQuantity = quantity + byNumber
@@ -38,33 +39,28 @@ const ProductAsCard: React.FC<ProductProps> = ({ product }) => {
       )
 
       if (existingProductIndex !== -1) {
-        // Update the quantity of the existing product
         const updatedSelection = [...prevState]
         updatedSelection[existingProductIndex] = productSelected
         return updatedSelection
       } else {
-        // Add the new product to the selection
         return [...prevState, productSelected]
       }
     })
   }
 
   useEffect(() => {
-    const selectedMatch = selection?.find((item) => item.name === product.name)
+    const selectedMatch = selection?.find((item) => item.name === name)
     if (selectedMatch) setQuantity(selectedMatch.quantity)
-}, [selection])
+  }, [selection, name])
 
   return (
     <ProductContainer>
       <ProductImageContainer>
-        <ProductImage
-          src={product.image}
-          name={product.name}
-        />
+        <ProductImage src={image} name={name} />
       </ProductImageContainer>
-      <ProductName>{product.name}</ProductName>
+      <ProductName>{name}</ProductName>
       <PriceContainer>
-        <ProductPrice>{product.price.toFixed(2)} €</ProductPrice>
+        <ProductPrice>{price.toFixed(2)} €</ProductPrice>
         <ButtoneryContainer>
           {quantity > 0 && (
             <>

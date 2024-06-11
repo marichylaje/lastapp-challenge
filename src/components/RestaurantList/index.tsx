@@ -5,16 +5,23 @@ import RestaurantCardSkeleton from "./RestaurantCard/RestaurantCardSkeleton"
 import { useGeoLocationContext } from "hooks/useGeoLocationContext"
 import { useRestaurantsWithDistance } from "hooks/useRestaurantsWithDistance"
 import type { RestaurantWithDistanceType } from "types"
+import { useNavigate } from "react-router-dom"
 
-//TODO: SOLVE CONSOLE LOG ONCLICK
 const RestaurantList = () => {
   const { location } = useGeoLocationContext()
-  const { restaurants } = useDataRestaurantsContext()
-  
+  const { restaurants, setSelectedRestaurant } = useDataRestaurantsContext()
+  const navigate = useNavigate()
+
   const sortedRestaurants = useRestaurantsWithDistance({
     restaurants,
     origin: location,
   })
+
+  const handleClick = (props: RestaurantWithDistanceType) => {
+    setSelectedRestaurant(props)
+    localStorage.setItem("selectedRestaurant", JSON.stringify(props))
+    navigate(`/restaurant/${props.id}`)
+  }
 
   if (!restaurants || !sortedRestaurants) {
     return (
@@ -29,7 +36,7 @@ const RestaurantList = () => {
       {sortedRestaurants.map((restaurant: RestaurantWithDistanceType) => (
         <RestaurantCard
           onClick={() => {
-            console.log(restaurant)
+            handleClick(restaurant)
           }}
           key={restaurant.id}
           {...restaurant}

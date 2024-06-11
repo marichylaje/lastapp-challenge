@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
 export const ProductListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   gap: 16px;
-  max-width: var(--max-width); 
+  max-width: var(--max-width);
 `

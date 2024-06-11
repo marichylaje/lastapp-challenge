@@ -21,8 +21,8 @@ const SearchPanel: React.FC<SearchPanelProps> = ({
   isVisible,
   setIsVisible,
 }) => {
-  const [ search, setSearch ] = useState<string>("")
-  const [ matches, setMatches ] = useState<ProductType[]>([])
+  const [search, setSearch] = useState<string>("")
+  const [matches, setMatches] = useState<ProductType[]>([])
   const { catalog, setSelection } = useRestaurantCatalogContext()
 
   const clearSearch = () => {
@@ -31,7 +31,7 @@ const SearchPanel: React.FC<SearchPanelProps> = ({
   }
 
   useEffect(() => {
-    if (!catalog) return;
+    if (!catalog) return
 
     const innerMatches: ProductType[] = catalog.reduce(
       (acc: ProductType[], category) => {
@@ -72,7 +72,12 @@ const SearchPanel: React.FC<SearchPanelProps> = ({
   }
 
   return (
-    <StyledSidebar pt={sidebarPt} visible={isVisible} onHide={() => setIsVisible(false)} fullScreen >
+    <StyledSidebar
+      pt={sidebarPt}
+      visible={isVisible}
+      onHide={() => setIsVisible(false)}
+      fullScreen
+    >
       <SearchContainer>
         <SearchIcon className="pi pi-search" />
         <SearchInput
@@ -86,7 +91,10 @@ const SearchPanel: React.FC<SearchPanelProps> = ({
       {matches.length > 0 && (
         <SidebarListItem>
           {matches.map((match) => (
-              <ProductAsRow product={match} handleSelectProduct={handleSelectProduct} />
+            <ProductAsRow
+              product={match}
+              handleSelectProduct={handleSelectProduct}
+            />
           ))}
         </SidebarListItem>
       )}

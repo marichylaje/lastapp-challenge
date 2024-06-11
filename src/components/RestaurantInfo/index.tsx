@@ -35,8 +35,18 @@ const RestaurantInfo: React.FC<RestaurantCardProps> = ({
   return (
     <RestaurantInfoContainer>
       <ImageWrapper>
-        <StyledImage src={image} alt={name} iscard={iscard.toString()} />
-        <StyledLogo src={logo} alt={`${name}-logo`} iscard={iscard.toString()} />
+        <StyledImage
+          loading="lazy"
+          src={image}
+          alt={name}
+          iscard={iscard.toString()}
+          width="100%"
+        />
+        <StyledLogo
+          src={logo}
+          alt={`${name}-logo`}
+          iscard={iscard.toString()}
+        />
       </ImageWrapper>
       <Content iscard={iscard.toString()}>
         <Title>{name.toUpperCase()}</Title>
@@ -49,12 +59,7 @@ const RestaurantInfo: React.FC<RestaurantCardProps> = ({
             {ratings.average} ({ratings.total})
           </InfoText>
 
-          <svg
-            width="12"
-            height="12"
-            fill="#6E6E6E"
-            className="ml-3"
-          >
+          <svg width="12" height="12" fill="#6E6E6E" className="ml-3">
             <use href="#location-icon" />
           </svg>
           <InfoText>{distance} km</InfoText>

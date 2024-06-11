@@ -2,6 +2,61 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Architecture Baseline
+
+The project follows a modular architecture that focuses on organizing and reusing components. It is designed to be highly modular and scalable, enabling efficient development and easy maintainability.
+
+### Reusable Components
+
+The project uses a component composed structure, where each component is designed to fulfill a specific function and can be easily reused in different parts of the application. This promotes code reusability and facilitates the creation of consistent and aesthetically pleasing user interfaces.
+
+### Modular Organization
+
+Different functional aspects of the project, such as routes, contexts, styles, and utilities, are organized into separate modules to enhance code readability and maintainability. This allows developers to work more efficiently and collaboratively, as each module focuses on a specific task.
+
+### Flexible Configuration
+
+The project structure is designed to be highly configurable and adaptable to changing development needs. Configuration files are organized in a neat and well-documented manner, making it easy to customize and integrate with other tools and technologies.
+
+### Scalability and Maintainability
+
+By following a modular and component-focused architecture, the project is prepared to grow and evolve over time. This structure facilitates the addition of new features and the implementation of code changes without compromising project stability or quality.
+
+---
+
+This architectural approach provides a solid foundation for the development of modern web applications and enables effective collaboration among development team members.
+
+
+## Project Structure
+
+The project's structure is organized within the `src` directory, which contains the following file hierarchy:
+
+- animations
+- App
+- components
+ -- ComponentExample
+  --- index.tsx
+  --- styles.ts
+- constants
+- contexts
+- hooks
+- pages
+ -- PageExample
+  --- index.tsx
+  --- styles.ts
+- routes
+- styles
+- types
+- utils
+
+The `components` and `pages` directories are specialized folders where reusable UI components and page-level components reside, respectively. Each component or page folder contains an index.tsx file, which serves as the default export point. This structure simplifies importing by allowing direct imports without specifying the file name, such as: import ComponentExample from 'components/ComponentExample'.
+
+If a component requires sub-components that are only used within the parent component, they can be organized within a sub-folder structure. This approach reduces clutter within the components directory, enhancing readability and navigation.
+
+Styling files are not exported as default to distinguish them clearly from React component files. This practice aids in maintaining a clear separation between component logic and styling concerns.
+
+We strongly recommend to have each file reduced to >100 lines of code.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -14,30 +69,55 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+Will run and execute throw webpack to optimize the application
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+To test the application, it's using Jest with React-Testing-Library
+The focus for testing the application will be
+ - tests the utils or computational functions, to avoid side effects while development
+
+We encourage to avoid snapshots
+
+TODO: add integrational tests to mimic the user interaction across the app
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It correctly bundles React in production mode and optimizes the build for the best performance using Webpack
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm run lint`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The lint script is responsible for running ESLint, a static code analysis tool for identifying and reporting on patterns found in ECMAScript/JavaScript code. It helps ensure that your codebase follows the defined coding standards, style guidelines, and best practices specified in your ESLint configuration. By running this script, you can catch potential errors, enforce consistent coding conventions, and maintain code quality throughout your project.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+TODO: Integrate this into the pipeline as a checker. It needs to pass in order to merge into the Developer branch.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `npm run format`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The format script utilizes Prettier, a code formatter, to automatically format your code according to the rules specified in your Prettier configuration file. This script ensures that your code maintains a consistent and readable style by applying indentation, line length, and other formatting rules defined in your configuration. By running the format script regularly, you can keep your codebase clean, improve readability, and facilitate collaboration among team members.
+
+TODO: Ensure that this script is set to run automatically on push events.
+
+
+## TODO
+
+- Create Pipelines on push to run prettier and eslint to improve codebase
+- Create integrational tests
+- Improve performance, and image sizes from server
+- Modularize CSS
+- Improve final animation, add total
+- Add more context stores, to be able to obtain "total" and other data
+- Save on cache images
+- Test contextAPI properly
+- Work on manifest
 
 ## Learn More
 

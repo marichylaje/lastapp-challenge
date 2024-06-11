@@ -34,4 +34,4 @@ export const ImageContainer = styled.div`
   width: 60px;
   height: 47px;
   margin: 1rem;
-`;
+`

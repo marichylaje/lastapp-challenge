@@ -2,10 +2,9 @@ import React from "react"
 import ProductAsCard from "./ProductAsCard"
 import { PageContainer, ProductListContainer } from "./styles"
 import type { ProductType, SelectionType } from "types"
-import ProductAsRow from "./ProductAsRow";
 
 interface ProductListProps {
-  products: ProductType[] | SelectionType[];
+  products: ProductType[] | SelectionType[]
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {

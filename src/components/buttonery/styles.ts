@@ -28,4 +28,3 @@ export const FloatingBottomButton = styled(Button)`
   left: 50%;
   transform: translateX(-50%);
 `
-
