@@ -132,7 +132,7 @@ TODO: Ensure that this script is set to run automatically on push events.
 - Generate Toaster to handle errors as global component
 - Work on manifest
 - Add Dependency section on Readme
-- Move from ContextAPI to Effector to improve Performance
+- Move from ContextAPI to Effector to improve Performance using an Event Based centralized store mannager
 - Move from CRA to Next.js to improve FCP 
 - Save user's selection on Local Storage in case of reload page
 
