@@ -4,7 +4,7 @@
 LastApp is a web application designed primarily for mobile users, enabling them to place orders from a variety of restaurants organized by proximity. Users can select a restaurant from a list of associated places, view the available products, choose their desired items, and complete their purchase seamlessly. This mobile-first application ensures a smooth and user-friendly experience, making it easy for users to enjoy their favorite meals from nearby restaurants.
 
 ### Application Structure
-The application is structured using a page-based approach facilitated by react-router-dom, which helps maintain the user's restaurant selection even after a page reload.
+The application is structured using a page-based approach facilitated by react-router-dom, which helps maintain the user's restaurant choise even after a page reload.
 
 ### Component and Styling
 LastApp utilizes pre-designed components provided by PrimeReact, which are then styled using Styled Components and TailwindCSS. This combination allows for a flexible and aesthetically pleasing design, ensuring a consistent look and feel throughout the application.
@@ -134,6 +134,7 @@ TODO: Ensure that this script is set to run automatically on push events.
 - Add Dependency section on Readme
 - Move from ContextAPI to Effector to improve Performance
 - Move from CRA to Next.js to improve FCP 
+- Save user's selection on Local Storage in case of reload page
 
 ## Learn More
 
