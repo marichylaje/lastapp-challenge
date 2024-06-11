@@ -1,7 +1,7 @@
 # LastApp: Web Application 
 
 ## Overview
-LastApp is a web application designed primarily for mobile users, enabling them to place orders from a variety of restaurants organized by proximity. Users can select a restaurant from a list of associated eateries, view the available products, choose their desired items, and complete their purchase seamlessly. This mobile-first application ensures a smooth and user-friendly experience, making it easy for users to enjoy their favorite meals from nearby restaurants.
+LastApp is a web application designed primarily for mobile users, enabling them to place orders from a variety of restaurants organized by proximity. Users can select a restaurant from a list of associated places, view the available products, choose their desired items, and complete their purchase seamlessly. This mobile-first application ensures a smooth and user-friendly experience, making it easy for users to enjoy their favorite meals from nearby restaurants.
 
 ### Application Structure
 The application is structured using a page-based approach facilitated by react-router-dom, which helps maintain the user's restaurant selection even after a page reload.
