@@ -118,6 +118,7 @@ TODO: Ensure that this script is set to run automatically on push events.
 - Save on cache images
 - Test contextAPI properly
 - Work on manifest
+- Add Dependency section on Readme
 
 ## Learn More
 
