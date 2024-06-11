@@ -120,6 +120,7 @@ TODO: Ensure that this script is set to run automatically on push events.
 
 ## TODO
 
+- Request designers to change the secondary color to improve Accesibility metrics
 - Create Pipelines on push to run prettier and eslint to improve codebase
 - Create integrational tests
 - Improve performance, and image sizes from server
