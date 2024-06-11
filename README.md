@@ -45,16 +45,16 @@ The project's structure is organized within the `src` directory, which contains 
 - animations
 - App
 - components
- -- ComponentExample
-  --- index.tsx
-  --- styles.ts
+  - ComponentExample
+    - index.tsx
+    - styles.ts
 - constants
 - contexts
 - hooks
 - pages
- -- PageExample
-  --- index.tsx
-  --- styles.ts
+  - PageExample
+    - index.tsx
+    - styles.ts
 - routes
 - styles
 - types
